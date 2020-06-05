@@ -1,7 +1,7 @@
 
 ## Weekend Challenge: SQL To-Do List
 
-Hello Primers! 
+Hello Sprouts! 
 
 Welcome to your weekend challenge!
 
