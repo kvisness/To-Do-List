@@ -4,18 +4,16 @@ body {
 }
 
 header {
-  background-color: brown;
-  padding: 1em;
-  margin-bottom: 1em;
-}
-
-h1 {
-  margin: 0;
+  background-color: slateblue;
+  padding: 2em;
+  margin-bottom: 2em;
+  text-align: center;
 }
 
 main {
   width: 90%;
   margin: auto;
+  text-align: center;
 }
 
 section {
@@ -25,7 +23,7 @@ section {
 }
 
 th {
-  text-align: left;
+  text-align: center;
 }
 
 

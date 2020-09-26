@@ -1,11 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const booksRouter = require("./routes/book.router.js");
-
+const taskListRouter = require("./routes/task.js");
 const app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/books", booksRouter);
+app.use("/tasklist", taskListRouter);//THIS NEEDS TO BE UPDATED TO NEW DATABASE info
 
 // Serve back static files by default
 app.use(express.static("server/public"));
