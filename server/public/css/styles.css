@@ -1,29 +1,33 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Calibri', sans-serif;
+  background-color: silver;
 }
 
 header {
-  background-color: slateblue;
+  background-color: black;
   padding: 2em;
   margin-bottom: 2em;
   text-align: center;
+  color: whitesmoke;
 }
 
 main {
   width: 90%;
   margin: auto;
   text-align: center;
+  background-color: teal;
 }
 
 section {
-  background-color: linen;
+  color: rgb(39, 30, 30);
+  background-color: slategrey;
   padding: .5em;
   margin-bottom: 1em;
 }
 
 th {
-  text-align: center;
+  width: 24%;
 }
 
 

@@ -5,7 +5,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/tasklist", taskListRouter);//THIS NEEDS TO BE UPDATED TO NEW DATABASE info
+app.use("/tasks", taskListRouter);//THIS NEEDS TO BE UPDATED TO NEW DATABASE info
 
 // Serve back static files by default
 app.use(express.static("server/public"));
