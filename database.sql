@@ -1,8 +1,9 @@
-CREATE TABLE books
+CREATE TABLE tasklist
 (
     "id" SERIAL PRIMARY KEY NOT NULL,
-    "title" VARCHAR (250) NOT NULL,
-    "author" VARCHAR (100) NOT NULL,
-    "published" DATE,
-    "status" VARCHAR (80) DEFAULT 'Want to Read'
+    "request" VARCHAR (200) NOT NULL,
+    "status" VARCHAR (100) DEFAULT 'Not Complete',
+    "priority" VARCHAR (100) NOT NULL,
+    "due_date" DATE,
+    "notes" VARCHAR (1000) NOT NULL
 );

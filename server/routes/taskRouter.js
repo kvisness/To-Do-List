@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const pool = require("../modules/pool");
+const pool = require("../modules/pool.js");
 
 // Get all tasks
 router.get('/', (req, res) => {
@@ -8,11 +8,11 @@ router.get('/', (req, res) => {
   pool.query(queryText)
     .then((result) => {
       // Sends back the results in an object
-      console.log('get request is working', result);
-      res.send(result.rows);
+      console.log('get request is working', result.rows)
+      res.send(result.rows)
     })
-    .catch((error) => {
-      console.log('error getting all tasks', error);
+    .catch((err) => {
+      console.log('error getting all tasks', queryText, err);
       res.sendStatus(500);
     });
 });
@@ -28,8 +28,8 @@ router.post('/', (req, res) => {
     .then((result) => {
       res.status(201).send('New task added!')
     })
-    .catch((error) => {
-      console.log(`Error adding new task`, error);
+    .catch((err) => {
+      console.log(`Error adding new task`, queryText, err);
       res.sendStatus(500);
     });
 });
@@ -46,28 +46,27 @@ router.put('/:id', (req, res) => {
   pool.query(queryText, [id])
     .then((result) => {
       res.send('Sucessful Status Update to Complete')
-      console.log(`Updating task ${id} with `, task)
     })
-    .catch((error) => {
-      console.log(`Error didn't update task status`, error);
-      res.sendStatus(500);
+    .catch((err) => {
+      console.log(`Error didn't update task status`, queryText, err);
+      res.status(400).send('Task not updated...');
     });
 });
 // DELETE
-// Removes a task to show that it has been completed.
+// Removes a task after it has been completed.
 // Request must include a parameter indicating what task to update - the id
 router.delete('/:id', (req, res) => {
   console.log(req.params);
   let id = req.params.id; // id of the thing to delete
-  let queryText = `DELETE FROM "tasklist" WHERE "id"=$1`;
-  console.log('Delete task called with id of', id);
+  let queryText = `DELETE FROM "tasklist" WHERE "id"=$1;`;
+  console.log('Delete route called with id of', id);
 
-  pool.query(queryText, [id])
+  pool.query(queryText, [req.params.id])
     .then((result) => {
-      res.sendStatus('Successful deletion of completed task')
+      res.send('Successful deletion of completed task')
     })
-    .catch((error) => {
-      console.log(`Error didn't delete task`, error);
+    .catch((err) => {
+      console.log(`Error didn't delete task`, queryText, err);
       res.sendStatus(500);
     });
 });

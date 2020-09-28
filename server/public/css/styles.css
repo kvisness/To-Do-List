@@ -26,8 +26,12 @@ section {
   margin-bottom: 1em;
 }
 
+table {
+  width: 100%;
+}
 th {
-  width: 24%;
+  width: 16%;
+  color: blue;
 }
 
 
