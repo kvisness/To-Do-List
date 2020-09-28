@@ -45,6 +45,7 @@ function appendTasks(newTask) {
     if (task.status != "Complete") {
       $tr.append(`</td><button class='completedTask' data-taskid= '${task.id}'> 
         Click to Complete</button></td>`);
+      //need to set this up so the background of the row turns green for completed task
     } else {$tr.append(`</td><button class='completedTask' data-taskid= '${task.id}'> 
         I Completed This</button></td>`).css("background-color", "green");
 }
@@ -52,7 +53,7 @@ function appendTasks(newTask) {
         Delete
       </button></td>`);
       $("#myTasks").append($tr);
-    
+      
   } // end appendTasks
 } // Add code for edit & delete buttons
 function addTask() {
@@ -61,7 +62,7 @@ function addTask() {
     method: "POST",
     url: "/tasks",
     data: {
-      request: $("#requestIn").val(),
+      request: $("#requestIn").val(),  
       status: $("#statusIn").val(),
       priority: $("#priorityIn").val(),
       due_date: $("#due_dateIn").val(),
@@ -87,7 +88,7 @@ function updateStatus(event) {
   $.ajax({
     method: "PUT",
     url: `/tasks/${$(event.target).data("taskid")}`,
-  }) //need to set this up so the background of the row turns green for completed task
+  }) 
     .then((result) => {
       getTasks();
       $(event.target).hide();

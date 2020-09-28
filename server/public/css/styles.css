@@ -22,8 +22,8 @@ main {
 section {
   color: rgb(39, 30, 30);
   background-color: slategrey;
-  padding: .5em;
-  margin-bottom: 1em;
+  padding: 1em;
+  margin-bottom: 2em;
 }
 
 table {
