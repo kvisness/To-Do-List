@@ -5,16 +5,18 @@ const pool = require("../modules/pool.js");
 // Get all tasks
 router.get('/', (req, res) => {
   let queryText = `SELECT * FROM "tasklist" ORDER BY "due_date";`;
-  pool.query(queryText)
+  pool
+    .query(queryText)
     .then((result) => {
       // Sends back the results in an object
-      console.log('get request is working', result.rows)
-      res.send(result.rows)
+      console.log("get request is working", result.rows);
+      res.send(result.rows);
     })
     .catch((err) => {
-      console.log('error getting all tasks', queryText, err);
+      console.log("error getting all tasks", queryText, err);
       res.sendStatus(500);
-    });
+    });  // Code Golf Equivalent:
+  //pool.query(queryText).then(result => res.send(result.rows)).catch(err => res.sendStatus(500));
 });
 
 // Adds a new task to the task list
@@ -22,6 +24,11 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   let newTask = req.body;
   console.log(`Adding new task`, newTask);
+     // make sure it exists
+    // if (task_name === undefined || task_name === null || task_name === '') {
+    //     // fail out early if the client didnt send us the right info
+    //     res.sendStatus(400); // 400: BAD REQUEST
+    //     return; // make sure we dont run the rest of the code
 
   let queryText = `INSERT INTO "tasklist" ("request", "status", "priority", "due_date", "notes") VALUES ($1, $2, $3, $4, $5);`;
   pool.query(queryText, [newTask.request, newTask.status, newTask.priority, newTask.due_date, newTask.notes])

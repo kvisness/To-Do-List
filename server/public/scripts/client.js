@@ -20,7 +20,7 @@ function getTasks() {
     url: "/tasks",
   })
     .then(function (response) {
-      console.log("getTasks is working", response);
+      console.log("getTasks is working", response);//ALWAYS DO THIS!!!
       appendTasks(response);
     })
     .catch(function (error) {
@@ -41,14 +41,19 @@ function appendTasks(newTask) {
     $tr.append(`<td>${task.priority}</td>`);
     $tr.append(`<td>${task.due_date}</td>`);
     $tr.append(`<td>${task.notes}</td>`);
-
+    //let taskStatus = "Not Complete" --CAN THIS WORK TO SHOW ON THE DOM IF NOTHING IS ENTERED?
     if (task.status != "Complete") {
       $tr.append(`</td><button class='completedTask' data-taskid= '${task.id}'> 
         Click to Complete</button></td>`);
       //need to set this up so the background of the row turns green for completed task
     } else {$tr.append(`</td><button class='completedTask' data-taskid= '${task.id}'> 
         I Completed This</button></td>`).css("background-color", "green");
-}
+}// <td> SEE MOMENTJS.COM
+                    //     ${moment(task.created_at).calendar()}
+                    //     <!-- ${moment(task.created_at).format('MMMM Do YYYY, h:mm:ss a')} -->
+                    //     <br/>
+                    //     (${moment(task.created_at).fromNow()})--CHANGE task.created_at to what it needs to be.
+                    // </td>
     $tr.append(`<td><button class='deleteTask' data-taskid= '${task.id}'>
         Delete
       </button></td>`);

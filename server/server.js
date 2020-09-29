@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;//looks for heroku's port value, if undefined it uses 5000 as default
 const taskRouter = require("./routes/taskRouter");
 
 app.use(bodyParser.urlencoded({ extended: true }));
