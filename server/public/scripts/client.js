@@ -21,7 +21,7 @@ function getTasks() {
   })
     .then(function (response) {
       console.log("getTasks is working", response);//ALWAYS DO THIS!!!
-      appendTasks(response);
+      appendTasks(response)
     })
     .catch(function (error) {
       console.log("error in GET", error);
