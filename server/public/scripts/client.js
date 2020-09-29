@@ -72,7 +72,7 @@ function addTask() {
       priority: $("#priorityIn").val(),
       due_date: $("#due_dateIn").val(),
       notes: $("#notesIn").val(),
-    },
+    }
   })
     .then((response) => {
         console.log('client POST .then is working');
