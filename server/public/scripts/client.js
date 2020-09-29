@@ -25,7 +25,7 @@ function getTasks() {
     })
     .catch(function (error) {
       console.log("error in GET", error);
-    }); //end refreshTasks
+    }); //end getTasks
 } //ajax call to the server to get tasks
 
 // Displays an array of tasks to the DOM
